@@ -3,66 +3,63 @@ import Events from "./components/Events";
 import Players from "./components/Players";
 import Teams from "./components/Teams";
 import styled from "styled-components";
-import Header from "./components/header";
 
 function App() {
   return (
-    <StyleBody>
+    <Container>
       <aside>
         <Sidebar />
       </aside>
       <main>
-        <div className="column-1">
-          <Header />
+        <div>
           <Events />
         </div>
-        
-        <div className="column-2">
+        <div>
           <div>
             <Players />
           </div>
-          <div>l
+          <div>
             <Teams />
           </div>
         </div>
       </main>
-    </StyleBody>
+    </Container>
   );
 }
 
 export default App;
 
-const StyleBody = styled.div`
+const Container = styled.div`
   display: flex;
   height: 100vh;
 
   & > aside {
     width: 336px;
   }
-   
+
   & > main {
     flex-grow: 1;
     display: flex;
     gap: 36px;
     padding: 36px;
 
-    & > .column-1 {
+    & > div:first-child {
       width: 60%;
     }
 
-    & > .column-2 {
+    & > div:last-child {
       width: 40%;
       display: flex;
       flex-direction: column;
-      gap: 36px; 
-      
+      gap: 36px;
+
       & > div:first-child {
-          height: 50%;
+        height: 50%;
       }
 
       & > div:last-child {
-          height: 50%;            
+        height: 50%;
       }
     }
   }
-` 
+`;
